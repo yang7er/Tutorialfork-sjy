@@ -1,0 +1,35 @@
+---
+title: "Tutorial 6. Collaborating with others"
+author: "Chen Yunzhi"
+date: '2022-04-08'
+output: html_document
+---
+
+
+```{r global, echo=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      fig.width = 8, 
+                      fig.height = 8, 
+                      fig.align = "center")
+```
+
+
+# Libraries
+```{r library, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(gridExtra)
+```
+# Visualizations
+```{r, fig.height=3}
+# Simulating data according to a normal distribution
+x <- 1:100
+y <- rnorm(100) # Generating data form a normal distribution with mean 0 and variance 1
+data <- data.frame(x = x, y = y) # Creating a data frame
+p1 <- ggplot(data, aes(x= x, y = y)) +
+  geom_line()
+p2 <- ggplot(data, aes(x= x, y = y)) +
+  geom_point()
+
+grid.arrange(p1, p2, nrow = 1)
+```
+
